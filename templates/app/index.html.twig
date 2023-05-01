@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Page{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>Hello {{ app.user.name }}! ✅</h1>
+        <a href="{{ path('app_logout') }}">Logout</a>
+    </div>
+{% endblock %}
