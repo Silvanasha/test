@@ -11,7 +11,7 @@ security:
                         password: '$2y$13$WYrZkIUbUKIKAbabgp0WxOfcvRiTC3IB.ebs8RQB.jK3U9fPA1pMe'
                         roles: [ 'ROLE_SUPER_ADMIN' ]
         users:
-            entity: { class: App\Entity\User, property: email }
+            id: App\Security\UserProvider
         
         all_users:
             chain:

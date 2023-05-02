@@ -15,7 +15,7 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    public function findInactiveUsers(int $days)
+    public function findInactiveUsers(int $days): mixed
     {
         $lastActiveDate = new \DateTimeImmutable(sprintf('-%d days', $days));
 
@@ -26,5 +26,19 @@ class UserRepository extends ServiceEntityRepository
             ->setParameter('is_active', true);
 
         return $qb->getQuery()->getResult();
+    }
+
+    public function loadUserByIdentifier(string $usernameOrEmail): ?User
+    {
+        $entityManager = $this->getEntityManager();
+
+        return $entityManager->createQuery(
+            'SELECT u
+                FROM App\Entity\User u
+                WHERE u.username = :query
+                OR u.email = :query'
+        )
+            ->setParameter('query', $usernameOrEmail)
+            ->getOneOrNullResult();
     }
 }
