@@ -11,22 +11,21 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mime\Address;
 
-class SendVerificationEmailSubscriber  implements EventSubscriberInterface
+class SendVerificationEmailSubscriber implements EventSubscriberInterface
 {
-
     public function __construct(private EmailVerifier $emailVerifier)
     {
     }
 
     #[ArrayShape([UserRegisteredEvent::class => "string"])]
-    public static function getSubscribedEvents() : array
+    public static function getSubscribedEvents(): array
     {
         return [
             UserRegisteredEvent::class => 'sendVerificationEmail',
         ];
     }
 
-    public function sendVerificationEmail(UserRegisteredEvent $event)
+    public function sendVerificationEmail(UserRegisteredEvent $event): void
     {
         $user = $event->getUser();
 

@@ -1,9 +1,7 @@
-<h1>Hi! Please confirm your email!</h1>
+<h1>Hello! Please confirm your email!</h1>
 
 <p>
-    You was register on the system. Your login information:
-    <b>Name:</b> {{ userName }}
-    <b>Password:</b> {{ userPassword }}
+    You was register on the system.
     Please confirm your email address by clicking the following link: <br><br>
     <a href="{{ signedUrl|raw }}">Confirm my Email</a>.
     This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.

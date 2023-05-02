@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create User{% endblock %}
+
+{% block body %}
+    {{ form_start(userForm, { 'attr' : { 'class': 'sign' } }) }}
+        <h1>Create User</h1>
+        {{ form_row(userForm.name, {
+            'attr' : { 'class': 'form-control' },
+            'label_attr' : { 'class': 'form-label' },
+        }) }}
+        {{ form_row(userForm.email, {
+            'attr' : { 'class': 'form-control' },
+            'label_attr' : { 'class': 'form-label' },
+        }) }}
+
+        <button type="submit" class="btn btn-primary btn-block mb-4">Create</button>
+    {{ form_end(userForm) }}
+{% endblock %}

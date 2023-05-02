@@ -20,7 +20,7 @@ class EmailVerifier
         private VerifyEmailHelperInterface $verifyEmailHelper,
         private MailerInterface $mailer,
         private EntityManagerInterface $entityManager,
-        private LoggerInterface $logger,
+        private LoggerInterface $logger
     ) {
     }
 
