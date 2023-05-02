@@ -38,6 +38,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotNull]
     private bool $isVerified = false;
 
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private \DateTime $lastLoginAt;
+
+    #[ORM\Column(type: 'boolean', nullable: false)]
+    #[Assert\NotNull]
+    private bool $isActive = true;
+
     public function getId() : int
     {
         return $this->id;
@@ -97,5 +104,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->isVerified = $isVerified;
 
         return $this;
+    }
+
+    public function setLastLoginAt(\DateTime $lastLoginAt)
+    {
+        $this->lastLoginAt = $lastLoginAt;
+    }
+
+    public function updateLastLoginAt(): self
+    {
+        $this->setLastLoginAt(new \DateTime());
+
+        return $this;
+    }
+
+    public function getLastLoginAt(): \DateTime
+    {
+        return $this->lastLoginAt;
+    }
+
+    public function isActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive)
+    {
+        $this->isActive = $isActive;
     }
 }
