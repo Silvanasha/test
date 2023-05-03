@@ -18,7 +18,8 @@ class MarkInactiveUsersCommand extends Command
 
     public function __construct(
         private UserRepository $userRepository,
-        private EntityManagerInterface $entityManager) {
+        private EntityManagerInterface $entityManager
+    ) {
         parent::__construct();
     }
 

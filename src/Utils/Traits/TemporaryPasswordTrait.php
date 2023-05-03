@@ -15,7 +15,7 @@ trait TemporaryPasswordTrait
         $charactersLength = strlen($characters);
         $temporaryPassword = '';
 
-        for ($i = 0; $i < $length; $i++) {
+        for ($i = 0; $i < $length; ++$i) {
             $temporaryPassword .= $characters[rand(0, $charactersLength - 1)];
         }
 

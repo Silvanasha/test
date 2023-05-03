@@ -35,20 +35,20 @@ class ChangePasswordFormType extends AbstractType
                         ]),
                     ],
                     'label' => 'New password',
-                    'row_attr' => array(
-                        'class' => 'form-outline mb-4'
-                    ),
+                    'row_attr' => [
+                        'class' => 'form-outline mb-4',
+                    ],
                     'attr' => [
-                        'class' => 'form-control'
+                        'class' => 'form-control',
                     ],
                 ],
                 'second_options' => [
                     'label' => 'Repeat Password',
-                    'row_attr' => array(
-                        'class' => 'form-outline mb-4'
-                    ),
+                    'row_attr' => [
+                        'class' => 'form-outline mb-4',
+                    ],
                     'attr' => [
-                        'class' => 'form-control'
+                        'class' => 'form-control',
                     ],
                 ],
                 'invalid_message' => 'The password fields must match.',

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Form;
 
@@ -27,9 +27,9 @@ class RegistrationFormType extends UserFormType
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
-                'row_attr' => array(
-                    'class' => 'form-outline mb-4'
-                ),
+                'row_attr' => [
+                    'class' => 'form-outline mb-4',
+                ],
             ])
             ->add('password', PasswordType::class, [
                 'mapped' => false,
@@ -44,9 +44,9 @@ class RegistrationFormType extends UserFormType
                         'max' => 4096,
                     ]),
                 ],
-                'row_attr' => array(
-                    'class' => 'form-outline mb-4'
-                ),
+                'row_attr' => [
+                    'class' => 'form-outline mb-4',
+                ],
             ])
         ;
     }

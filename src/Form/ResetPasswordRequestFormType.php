@@ -20,9 +20,9 @@ class ResetPasswordRequestFormType extends AbstractType
                         'message' => 'Please enter your email',
                     ]),
                 ],
-                'row_attr' => array(
-                    'class' => 'form-outline mb-4'
-                ),
+                'row_attr' => [
+                    'class' => 'form-outline mb-4',
+                ],
             ])
         ;
     }

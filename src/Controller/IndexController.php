@@ -1,11 +1,10 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Controller;
 
 use App\Entity\User;
-use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
     /**
-     * @throws Exception
+     * @throws \Exception
      */
     #[Route('/', name: 'app_home')]
     public function indexAction(): Response
@@ -27,7 +26,7 @@ class IndexController extends AbstractController
         $user = $this->getUser();
 
         if (!$user instanceof User) {
-            throw new Exception ('Undefined user type');
+            throw new \Exception('Undefined user type');
         }
 
         return match ($user->isVerified()) {

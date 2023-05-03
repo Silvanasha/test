@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Form;
 
@@ -22,9 +22,9 @@ class UserFormType extends AbstractType
                     'message' => 'Please enter a name',
                 ]),
             ],
-            'row_attr' => array(
-                'class' => 'form-outline mb-4'
-            ),
+            'row_attr' => [
+                'class' => 'form-outline mb-4',
+            ],
         ])
         ->add('email', EmailType::class, [
             'constraints' => [
@@ -32,9 +32,9 @@ class UserFormType extends AbstractType
                     'message' => 'Please enter a name',
                 ]),
             ],
-            'row_attr' => array(
-                'class' => 'form-outline mb-4'
-            ),
+            'row_attr' => [
+                'class' => 'form-outline mb-4',
+            ],
         ]);
     }
 

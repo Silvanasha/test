@@ -29,7 +29,8 @@
         "symfonycasts/reset-password-bundle": "^1.17",
         "symfonycasts/verify-email-bundle": "^1.13",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "wayofdev/cs-fixer-config": "^1.2"
     },
     "config": {
         "allow-plugins": {
@@ -69,7 +70,9 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "php-cs-fixer": "php-cs-fixer --config=./.php_cs"
+        "php-cs-fixer": "php-cs-fixer --config=./.php_cs",
+        "cs-fix": "php vendor/bin/php-cs-fixer fix -v",
+        "cs-diff": "php vendor/bin/php-cs-fixer fix --dry-run -v --diff"
     },
     "conflict": {
         "symfony/symfony": "*"

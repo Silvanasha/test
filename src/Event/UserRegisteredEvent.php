@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Event;
 
@@ -9,7 +9,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class UserRegisteredEvent extends Event
 {
-    private  User $user;
+    private User $user;
 
     public function __construct(User $user)
     {

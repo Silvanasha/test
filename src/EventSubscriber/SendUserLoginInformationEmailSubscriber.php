@@ -19,7 +19,7 @@ class SendUserLoginInformationEmailSubscriber implements EventSubscriberInterfac
     {
     }
 
-    #[ArrayShape([UserCreatedByAdminEvent::class => "string"])]
+    #[ArrayShape([UserCreatedByAdminEvent::class => 'string'])]
     public static function getSubscribedEvents(): array
     {
         return [

@@ -1,14 +1,14 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
 use App\Event\UserRegisteredEvent;
 use App\Security\EmailVerifier;
 use JetBrains\PhpStorm\ArrayShape;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Mime\Address;
 
 class SendVerificationEmailSubscriber implements EventSubscriberInterface
@@ -17,7 +17,7 @@ class SendVerificationEmailSubscriber implements EventSubscriberInterface
     {
     }
 
-    #[ArrayShape([UserRegisteredEvent::class => "string"])]
+    #[ArrayShape([UserRegisteredEvent::class => 'string'])]
     public static function getSubscribedEvents(): array
     {
         return [
@@ -29,7 +29,9 @@ class SendVerificationEmailSubscriber implements EventSubscriberInterface
     {
         $user = $event->getUser();
 
-        $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+        $this->emailVerifier->sendEmailConfirmation(
+            'app_verify_email',
+            $user,
             (new TemplatedEmail())
                 ->from(new Address('no-reply@test.com', 'Mail Bot'))
                 ->to($user->getEmail())

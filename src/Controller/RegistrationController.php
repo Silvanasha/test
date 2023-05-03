@@ -1,14 +1,14 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Repository\UserRepository;
-use App\Security\AppAuthenticator;
 use App\Event\UserRegisteredEvent;
 use App\Form\RegistrationFormType;
+use App\Repository\UserRepository;
+use App\Security\AppAuthenticator;
 use App\Security\EmailVerifier;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +23,8 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 class RegistrationController extends AbstractController
 {
     public function __construct(private EmailVerifier $emailVerifier)
-    {}
+    {
+    }
 
     #[Route('/register', name: 'app_register')]
     public function register(
@@ -32,9 +33,9 @@ class RegistrationController extends AbstractController
         EntityManagerInterface $entityManager,
         EventDispatcherInterface $dispatcher,
         UserAuthenticatorInterface $userAuthenticator,
-        AppAuthenticator $authenticator): Response
-    {
-        if ($this->getUser() !== null) {
+        AppAuthenticator $authenticator
+    ): Response {
+        if (null !== $this->getUser()) {
             return $this->redirectToRoute('app_home');
         }
 
@@ -77,7 +78,7 @@ class RegistrationController extends AbstractController
 
         // Verify the user id exists and is not null
         if (null === $id) {
-           return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_home');
         }
 
         $user = $userRepository->find($id);

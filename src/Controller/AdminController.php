@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -9,8 +9,8 @@ use App\Event\UserCreatedByAdminEvent;
 use App\Event\UserRegisteredEvent;
 use App\Form\UserFormType;
 use App\Utils\Traits\TemporaryPasswordTrait;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,8 +23,8 @@ class AdminController extends AbstractController
 
     public function __construct(private EntityManagerInterface $entityManager)
     {
-
     }
+
     #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
@@ -52,8 +52,7 @@ class AdminController extends AbstractController
         Request $request,
         EventDispatcherInterface $dispatcher,
         UserPasswordHasherInterface $passwordHasher
-    ): Response
-    {
+    ): Response {
         $user = new User();
         $form = $this->createForm(UserFormType::class, $user);
         $form->handleRequest($request);
