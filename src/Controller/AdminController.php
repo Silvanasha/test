@@ -47,7 +47,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/create_user', name: 'app_users')]
+    #[Route('/admin/create_user', name: 'app_new_user')]
     public function createUser(
         Request $request,
         EventDispatcherInterface $dispatcher,

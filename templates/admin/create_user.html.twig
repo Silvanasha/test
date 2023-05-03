@@ -3,6 +3,8 @@
 {% block title %}Create User{% endblock %}
 
 {% block body %}
+    {% include 'admin/menu.html.twig' %}
+
     {{ form_start(userForm, { 'attr' : { 'class': 'sign' } }) }}
         <h1>Create User</h1>
         {{ form_row(userForm.name, {

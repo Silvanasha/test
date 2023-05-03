@@ -3,9 +3,8 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
+{% include 'admin/menu.html.twig' %}
 <div class="example-wrapper">
     <h1>Hello admin! ✅</h1>
-    <a href="{{ path('app_logout') }}">Logout</a>
-    <a href="{{ path('app_users') }}">Users</a>
 </div>
 {% endblock %}
